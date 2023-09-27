@@ -53,7 +53,7 @@ const PORT = process.env.PORT || 8000;
 // });
 //Routes
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://baole-expensetracker-io.onrender.com');
+    res.setHeader('Access-Control-Allow-Origin', "*");
     res.setHeader('Access-Control-Allow-Credentials', 'true');
 
     // Other headers and options

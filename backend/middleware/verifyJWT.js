@@ -4,6 +4,7 @@ require('dotenv').config();
 const verifyJWT = async (req, res, next) => {
     try {
         let authHeader = req.headers.authorization || req.headers.Authorization;
+        console.log(authHeader);
         if (authHeader?.startsWith('Bearer ')) {
             var token = authHeader.split(' ')[1];
         }

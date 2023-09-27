@@ -9,10 +9,11 @@ const verifyJWT = async (req, res, next) => {
         }
         
         const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        console.log(verified);
         req.user = verified;
         next();
     } catch (err) {
-        console.log(err.message);
+        console.log(err);
         res.status(500).json({ error: err.message })
     }
     // console.log(token)

@@ -24,9 +24,10 @@ const register = async (req, res) => {
         });
         console.log(newUser);
         // const savedUser = await newUser.save();
-        return res.status(201).json({ 'success': `New user ${newUser.firstName} created!` });
+        return res.status(201).json({ 'message': `New user ${newUser.firstName} created!` });
     } catch (err) {
-        return res.status(500).json({ 'error': err.message });
+        console.log(err.message);
+        return res.status(500).json({ 'message': err.message });
     }
 };
 
@@ -80,14 +81,13 @@ const login = async (req, res) => {
         
         return res.status(200).json({ accessToken, foundUser, refreshToken });
     } catch (err) {
-        return res.status(500).json({ 'error': err.message });
+        return res.status(500).json({ 'message': err.message });
     }
 };
 
 /* REFRESH */
 const refresh = (req, res) => {
     const cookies = req.cookies;
-    console.log(req);
     if (!cookies?.jwt) return res.status(401).json({ message: "No cookies" });
     // if (!cookies?.userId) return res.status(401).json({ message: "userId" });
     const refreshToken = cookies.jwt;

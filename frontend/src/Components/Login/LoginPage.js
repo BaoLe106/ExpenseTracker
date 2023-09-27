@@ -11,7 +11,7 @@ import Button from '../Button/Button';
 import { NotifyError } from '../../Function/Notify';
 // import { useHistory } from 'react-router-dom';
 
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "https://expensetracker-backend-foth.onrender.com/";
 
 function LoginPage() {
 

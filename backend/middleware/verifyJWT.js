@@ -12,6 +12,7 @@ const verifyJWT = async (req, res, next) => {
         req.user = verified;
         next();
     } catch (err) {
+        console.log(err.message);
         res.status(500).json({ error: err.message })
     }
     // console.log(token)

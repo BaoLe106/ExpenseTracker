@@ -9,7 +9,7 @@ const verifyJWT = async (req, res, next) => {
             var token = authHeader.split(' ')[1];
         }
         // console.log(token, process.env.ACCESS_TOKEN_SECRET);
-        token = process.env.ACCESS_TOKEN_SECRET;
+        // token = process.env.ACCESS_TOKEN_SECRET;
         const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
         console.log(verified);
         req.user = verified;

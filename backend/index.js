@@ -12,9 +12,7 @@ const corsOptions = require('./config/corsOptions');
 const cookieParser = require('cookie-parser');
 const verifyJWT = require('./middleware/verifyJWT');
 const credentials = require('./middleware/credentials');
-// const mongoose = require('mongoose');
-const { readdirSync } = require('fs');
-const { fileURLToPath } = require('url');
+
 
 
 // const __filename = fileURLToPath(import.meta.url);
@@ -54,19 +52,19 @@ const PORT = process.env.PORT || 8000;
 //     next();
 // });
 //Routes
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://baole-expensetracker-io.onrender.com']);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://baole-expensetracker-io.onrender.com']);
+//     res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-    // Other headers and options
-    next();
-});
+//     // Other headers and options
+//     next();
+// });
 
 // middleware for cookies
 app.use(cookieParser());
 
 app.use('/auth', require('./routes/auth'));
-
+console.log('aaaaaaaaaaaaaaa')
 app.use(verifyJWT);
 app.use('/incomes', require('./routes/api/incomes'));
 app.use('/expenses', require('./routes/api/expenses'));
